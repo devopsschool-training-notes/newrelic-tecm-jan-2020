@@ -1,0 +1,96 @@
+NewRelic | Datadog | Splunk | Elastic
+=======================================
+	Infra
+	APM
+	Log
+	SYN
+	SEC
+	UX
+	===========
+	
+AppDya -> APM (Hosted)
+dynatrace - 
+	=== Infra
+zabbix
+prom
+nagios
+graphite
+===========================
+Obe
+==================================================
+
+newrelic@devopsschool.com
+Training@1234
+
+
+==============================
+LINUX -> Agent --> Observe data at NewRelic
+Windows -> Agent --> Observe data at NewRelic
+Apache
+Docker
+Kubernetes
+mysql
+
+
+Play around with Agent in linux & Window
+====================================================
+
+Monitoring ---> Gathering at Remote Point
+	     ---------------------------------
+		CPU 			--> PAST Or CURRENT
+		DISK			--> PAST Or CURRENT
+		APACHE STATS		--> PAST Or CURRENT
+	===============================
+	DB
+	SET THRSOLD
+	-----
+	ALERTS ---> HUMAN (Incident)
+
+OB
+	Metris
+	Log
+	Trace
+	Syn
+	UX
+
+	alogo
+
+=========================
+rajesh@devopsschool.com
+=========================
+
+35.154.123.193
+
+Linux - https://www.devopsschool.com/blog/newrelic-infrastructure-monitoring-linux-vitural-machine-using-newrelic-agent/
+
+Windows - 
+https://www.devopsschool.com/blog/newrelic-infrastructure-monitor-windows-2019-server-using-newrelic-infrastructure/
+
+Public DNS	ec2-13-235-42-147.ap-south-1.compute.amazonaws.com
+User name	Administrator
+Password	
+GUDNS3FhT?HBduGq()(hJM)T7Zvw*2hp 
+
+
+Linux Server
+====================================
+Abbas				3.110.102.92
+poojitha			35.154.165.19
+Kodi Sri Bala Durga Siva Prasad	3.110.62.9
+Praveen Gunti			65.0.4.187
+sravani sreemanthula		13.235.245.197
+Praneeth Reddy Gadila		13.234.59.79
+S Arif Basha			13.233.195.42
+Mahendra Reddy			3.110.213.220
+Gurram Purushotham Reddy	3.110.225.236
+G N V VSatya Sai 		3.110.86.230
+VARA PRASAD			65.2.34.175
+Prabhu Chaitanya			13.233.138.58
+Sreekanth Golla			13.233.215.111
+Kammala Sreenu			13.233.92.93
+
+
+
+
+
+
