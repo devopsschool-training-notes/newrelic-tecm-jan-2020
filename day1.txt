@@ -111,6 +111,25 @@ Prabhu Chaitanya		3.110.213.239	(8cY)9TvsZIhl(REdjbzDS(-lQcBBNdX
 Sreekanth Golla			13.127.165.63	mq?oHP*.9qB9=M378rEiiuGVsltsCkoV
 Kammala Sreenu			13.233.168.148			yS?A&R(tsM&s(Gd(Fg$fcRPLYdMnL?WH
 Ashwariya			13.235.31.39	b*L;*fmS@QmSsuLaubUj;pEsRfgsCPiu	
+======================================
+Apache
+https://www.devopsschool.com/blog/newrelic-infrastructure-apache2-integration-and-monitoring-in-linux-centos-with-newrelic/
+
+
+Docker
+Kubernetes
+mysql
+
+LoadModule status_module modules/mod_status.so
+<Location /server-status>
+   SetHandler server-status
+   Order deny,allow
+   Deny from all
+   Allow from all
+   Allow from 172.31.16.146
+</Location>
+ExtendedStatus On
+
 
 
 
