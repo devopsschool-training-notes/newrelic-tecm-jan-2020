@@ -1,0 +1,193 @@
+============
+newrelic-infra.yaml
+newrelic-infra
+=========================================
+Database
+Kubernetes
+-----------------------------------------
+https://www.devopsschool.com/blog/how-to-monitor-mysql-using-newrelic-with-integration-in-linux/
+
+$ sudo mysql -u root -p -e "CREATE USER 'newrelic'@'localhost' IDENTIFIED BY 'root123' WITH MAX_USER_CONNECTIONS 5;"
+$ sudo mysql -e "GRANT SELECT ON *.* TO 'newrelic'@'localhost';"
+
+
+mysql -u root -p
+
+
+sudo mysql -e "GRANT SELECT ON *.* TO 'newrelic'@'localhost' WITH MAX_USER_CONNECTIONS 5;"
+
+GRANT REPLICATION CLIENT ON *.* TO 'newrelic'@'localhost' WITH MAX_USER_CONNECTIONS 5;
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
++--------------------+
+3 rows in set (0.01 sec)
+=======================================
+Kubernetes
+https://www.devopsschool.com/blog/how-to-setup-integration-of-kubernetes-with-newrelic-install-and-configure/
+
+====================================================
+Node	- newrelic-infra  (docker - in built-in cadvisor)
+POD	- > kubelet or api-server [ https://github.com/kubernetes-sigs/metrics-server ]
+Container
+Services
+
+metrics-server -> each node cadvisor
+POD 				container
+
+newrelic monitor -->
+		Create a Namespace
+		Create a newrelic POD ----> ASK metrics from Metrics sever 
+		Send to cloud
+
+
+
+
+65.2.63.203
+
+Your Kubernetes control-plane has initialized successfully!
+
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+Alternatively, if you are the root user, you can run:
+
+  export KUBECONFIG=/etc/kubernetes/admin.conf
+
+You should now deploy a pod network to the cluster.
+Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+Then you can join any number of worker nodes by running the following on each as root:
+
+kubeadm join 172.31.3.37:6443 --token nkda6d.zx5jb96cwryqz0pm \
+        --discovery-token-ca-cert-hash sha256:b8d36e7fd1698a429e03f36c5dc72beefc39281ea3d643efb4eae1fd659465a9
+[root@ip-172-31-3-37 centos]#
+
+
+helm repo add newrelic https://helm-charts.newrelic.com && \
+kubectl create namespace newrelic ; helm install newrelic-bundle newrelic/nri-bundle \
+ --set global.licenseKey=83cfcf6e9c31afd4f180eeca4b5c3b0b5bbcNRAL \
+ --set global.cluster=k8sdevopsschool \
+ --namespace=newrelic \
+ --set newrelic-infrastructure.privileged=true \
+ --set ksm.enabled=true \
+ --set prometheus.enabled=true \
+ --set kubeEvents.enabled=true \
+ --set logging.enabled=true
+==========================================================
+ME --> Flipkart.com ---> Login	- 1 Trace		1000
+			  CART	 ---			1000
+				Place Some order	1000
+						Payment Gateway	1000
+
+helm repo add newrelic https://helm-charts.newrelic.com && helm repo update && \
+kubectl create namespace newrelic ; helm upgrade --install newrelic-bundle newrelic/nri-bundle \
+ --set global.licenseKey=83cfcf6e9c31afd4f180eeca4b5c3b0b5bbcNRAL \
+ --set global.cluster=kubernetes \
+ --namespace=newrelic \
+ --set newrelic-infrastructure.privileged=true \
+ --set global.lowDataMode=true \
+ --set ksm.enabled=true \
+ --set kubeEvents.enabled=true 
+
+
+===================================================================================================
+===================================================================================================
+
+Step 1  - Install JAVA			DONE
+- https://www.devopsschool.com/blog/complete-guide-of-java-installation-in-linux/
+
+s
+Step 2 - Install Tomcat			DONE
+
+ 164  yum install java-11-openjdk-devel
+  165  clear
+  166  l
+  167  ls
+  168  cd /opt/
+  169  ls
+  170  wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.58/bin/apache-tomcat-9.0.58.zip
+  171  ls
+  172  clear
+  173  ls
+  174  unzip apache-tomcat-9.0.58.zip
+  175  yum install unzip -y
+  176  clear
+  177  unzip apache-tomcat-9.0.58.zip
+  178  clear
+  179  ls
+  180  cd apache-tomcat-9.0.58
+  181  ls
+  182  cd bn
+  183  cd bin/
+  184  ls
+  185  clear
+  186  ls
+  187  chmod -R 755 .
+  188  ls
+  189  ./startup.sh
+  190  ps -eaf | grep tomcat
+  191  clear
+
+
+
+Step 3 - Install App
+
+Step 4 - Install NewRelic Agent in Tomcat
+
+curl -Ls https://download.newrelic.com/install/newrelic-cli/scripts/install.sh | bash && sudo NEW_RELIC_API_KEY=NRAK-32EHABRB731BJX0GB5DN2VGTHB4 NEW_RELIC_ACCOUNT_ID=3405666 /usr/local/bin/newrelic install -n java-agent-installer
+
+==> Installing Java Agent Installer...
+
+
+================================================================================================
+=                                                                                              =
+=                                           Warning                                            =
+=                                                                                              =
+=         This installation will periodically check for new Tomcat processes to monitor.       =
+=    Any new Tomcat processes started after this installation will report data to New Relic.   =
+=                                                                                              =
+=                                                                                              =
+================================================================================================
+
+
+If you prefer to instrument your Java application differently then check out our other installation options:
+https://docs.newrelic.com/docs/agents/java-agent/installation/install-java-agent/.
+
+Do you want to install the Java Agent Y/N (default: Y)?
+
+
+Step 5 - Install Jmeter
+https://www.devopsschool.com/blog/how-to-install-and-configure-jemeter/
+- JDK 11 and JAVA_HOME
+- Download and Extract
+- Copy 4 Jar files INTO C:\tools\apache-jmeter-5.4\lib\ext
+	FROm - https://github.com/devopsschool-demo-labs-projects/jmeter-lib
+- Start a Jmeter
+./jmeter.bat
+
+
+Step 6 - Use Jmeter for creating traffic on App
+ -----> https://www.guru99.com/jmeter-performance-testing.html
+- https://www.devopsschool.com/blog/how-to-install-and-configure-jemeter/
+
+
+MY APP _ http://3.109.214.237:8080/examples/jsp/jsp2/simpletag/hello.jsp
+
+
+
+Step 7 - Verify the APM data in NewRelic
+
+Step 8 - Learn NewRelic APM Dashboard
+
+
+
+
+
+
+
