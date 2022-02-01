@@ -105,6 +105,9 @@ Step 1  - Install JAVA			DONE
 s
 Step 2 - Install Tomcat			DONE
 
+https://www.devopsschool.com/blog/tomcat-install-and-configuration-tutorial-and-guide/
+
+
  164  yum install java-11-openjdk-devel
   165  clear
   166  l
@@ -185,6 +188,26 @@ Step 7 - Verify the APM data in NewRelic
 
 Step 8 - Learn NewRelic APM Dashboard
 
+
+
+
+Abbas				13.234.77.67		
+poojitha			13.233.108.208		
+Kodi Sri Bala Durga Siva Prasad	3.109.214.237
+Praveen Gunti				3.108.44.132	
+sravani sreemanthula			13.232.126.186	
+Praneeth Reddy Gadila		3.108.60.9		
+S Arif Basha			65.0.135.79		
+Mahendra Reddy			3.108.194.193		
+Gurram Purushotham Reddy	13.233.142.147	
+G N V VSatya Sai 		65.1.135.182		
+VARA PRASAD			65.0.134.212	
+Prabhu Chaitanya		13.126.57.244			
+Sreekanth Golla			3.110.160.237	
+Kammala Sreenu			13.234.231.152	
+AISHWARYA			15.206.91.186					
+
+65.0.85.194
 
 
 
